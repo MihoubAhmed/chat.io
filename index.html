@@ -7,10 +7,16 @@
  
     <body>
         <h1>Communication avec socket.io !</h1>
-
+         <div id="chat">
+		 
+		 </div>
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect('http://localhost:8080');
+			
+			 socket.on('message', function(message) {
+               document.getElementById("chat").innerHTML='NodeJs has a message for you: ' + message.content+' |  priority : '+message.importance;
+               })
         </script>
     </body>
 </html>
